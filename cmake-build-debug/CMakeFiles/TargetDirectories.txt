@@ -1,3 +1,0 @@
-C:/Users/gaeta/Documents/HEIGVD/.BA4/POO2/labos/POO2_L4_Buffy/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/gaeta/Documents/HEIGVD/.BA4/POO2/labos/POO2_L4_Buffy/cmake-build-debug/CMakeFiles/POO2_L4_Buffy.dir
-C:/Users/gaeta/Documents/HEIGVD/.BA4/POO2/labos/POO2_L4_Buffy/cmake-build-debug/CMakeFiles/edit_cache.dir
