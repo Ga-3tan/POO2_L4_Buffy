@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/MinGW/bin/mingw32-make.exe -DCMAKE_C_COMPILER=C:/MinGW/bin/gcc.exe -G "CodeBlocks - MinGW Makefiles" C:\Users\gaeta\Documents\HEIGVD\.BA4\POO2\labos\POO2_L4_Buffy
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/gaeta/Documents/HEIGVD/.BA4/POO2/labos/POO2_L4_Buffy/cmake-build-debug

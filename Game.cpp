@@ -3,3 +3,11 @@
 //
 
 #include "Game.h"
+#include "GameLogic/Field.h"
+
+void Game::start() {
+    Field field;
+    while(true) {
+        field.nextTurn();
+    }
+}
