@@ -5,10 +5,11 @@
 #ifndef POO2_L4_BUFFY_BUFFY_H
 #define POO2_L4_BUFFY_BUFFY_H
 
+#include "Humanoid.h"
 
-class Buffy {
-
+class Buffy : public Humanoid {
+public:
+    void setAction(const Field& f) override;
 };
-
 
 #endif //POO2_L4_BUFFY_BUFFY_H
