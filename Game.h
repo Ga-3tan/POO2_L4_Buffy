@@ -8,6 +8,8 @@
 
 class Game {
 
+    void start();
+
 };
 
 

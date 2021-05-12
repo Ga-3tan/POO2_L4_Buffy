@@ -6,8 +6,10 @@
 #define POO2_L4_BUFFY_ACTION_H
 
 
-class Action {
+#include "Field.h"
 
+class Action {
+    virtual void execute(const Field& field) = 0;
 };
 
 
