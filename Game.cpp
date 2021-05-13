@@ -11,8 +11,8 @@
 void ClearScreen() {
     // Function which cleans the screen without flickering
     COORD cursorPosition;
-    cursorPosition.X = 0;
-    cursorPosition.Y = 0;
+    cursorPosition.X = 5;
+    cursorPosition.Y = 5;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
 }
 
@@ -20,13 +20,16 @@ void Game::start(std::size_t gridSize) {
     Field field(gridSize);
     int currentTurn;
 
-    system("Color 02");
-    ClearScreen();
-    std::cout << field.display();
-    field.updateDisplay(3, 3, 'c');
-    Sleep(5000);
-    ClearScreen();
-    std::cout << field.display();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+//    ClearScreen();
+    std::cout << field;
+
+
+//    std::cout << field;
+//    field.updateDisplay(3, 3, 'c');
+//    Sleep(2000);
+//    ClearScreen();
+//    std::cout << "c";
     while(true);
 //    while(currentTurn != 10) {
 //        system("Color E4");

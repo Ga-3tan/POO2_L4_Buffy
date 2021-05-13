@@ -17,7 +17,7 @@ protected:
     Humanoid* actor; // TODO weak ptr ?
 public:
     Action(Humanoid* actor);
-    virtual void execute(const Field& field) = 0;
+    virtual void execute(Field &field) = 0;
 };
 
 

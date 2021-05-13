@@ -13,7 +13,7 @@ class Move : public Action {
 public:
     Move(Humanoid *actor, std::size_t destX, std::size_t destY);
 
-    void execute(const Field &field) override;
+    void execute(Field &field) override;
 };
 
 

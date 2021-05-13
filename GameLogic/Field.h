@@ -10,6 +10,7 @@
 #include <vector>
 #include "../Entities/Humanoid.h"
 #include <string>
+#include <iostream>
 
 
 class Field {
@@ -22,7 +23,9 @@ public:
     int nextTurn();
     Humanoid* findNearby(Humanoid* from, const std::type_info& type) const;
     void updateDisplay(std::size_t x, std::size_t y, char c);
-    std::string display() const;
+    std::ostream& display(std::ostream& os) const;
 };
+
+std::ostream& operator << (std::ostream& os, const Field& field);
 
 #endif //POO2_L4_BUFFY_FIELD_H

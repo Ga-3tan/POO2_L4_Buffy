@@ -11,7 +11,7 @@ class Kill : public Action {
 private:
     Humanoid* target;
 public:
-    void execute(const Field& field) override;
+    void execute(Field &field) override;
 };
 
 
