@@ -5,18 +5,16 @@
 #ifndef POO2_L4_BUFFY_ACTION_H
 #define POO2_L4_BUFFY_ACTION_H
 
-// sinon "... does not name a type"
-class Humanoid;
-class Field;
+class Action;
 
 #include "Field.h"
 #include "../Entities/Humanoid.h"
 
 class Action {
 protected:
-    Humanoid* actor; // TODO weak ptr ?
+    Humanoid* actionReciever;
 public:
-    Action(Humanoid* actor);
+    Action(Humanoid* actionReciever);
     virtual void execute(Field &field) = 0;
 };
 

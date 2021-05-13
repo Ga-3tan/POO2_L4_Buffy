@@ -5,27 +5,28 @@
 #ifndef POO2_L4_BUFFY_FIELD_H
 #define POO2_L4_BUFFY_FIELD_H
 
+class Field;
+
 #include <typeinfo>
 #include <list>
 #include <vector>
-#include "../Entities/Humanoid.h"
 #include <string>
-#include <iostream>
+#include "../Entities/Humanoid.h"
 
+std::ostream& operator << (std::ostream& os, const Field& field);
+void setCursorPosition(std::size_t x, std::size_t y);
 
 class Field {
-    std::vector<std::vector<char>> map;
     std::list<Humanoid*> humanoids;
-    std::size_t size;
-    int turn{0};
+    std::size_t gridSize;
+    int turn;
+
+    friend std::ostream& operator << (std::ostream& os, const Field& field);
 public:
     Field(std::size_t size);
     int nextTurn();
     Humanoid* findNearby(Humanoid* from, const std::type_info& type) const;
-    void updateDisplay(std::size_t x, std::size_t y, char c);
-    std::ostream& display(std::ostream& os) const;
+    std::size_t size() const;
 };
-
-std::ostream& operator << (std::ostream& os, const Field& field);
 
 #endif //POO2_L4_BUFFY_FIELD_H

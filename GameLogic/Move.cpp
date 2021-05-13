@@ -9,9 +9,5 @@ Move::Move(Humanoid *actor, std::size_t destX, std::size_t destY) : Action(actor
 }
 
 void Move::execute(Field &field) {
-    actor->setPosition(destX, destY);
-
-    field.updateDisplay(actor->x(),actor->y(), ' ');
-    field.updateDisplay(destX,destY, 'c');
-    // TODO : update "game show grid" ? a 2D char grid with only representation of entities
+    actionReciever->setPosition(destX, destY);
 }

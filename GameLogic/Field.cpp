@@ -4,32 +4,61 @@
 
 #include <cmath>
 #include "Field.h"
+#include "../Entities/Buffy.h"
+#include "../Entities/Vampire.h"
+#include "../Entities/Human.h"
 #include <limits>
 #include <windows.h>
 
 std::ostream& operator << (std::ostream& os, const Field& field) {
+    setCursorPosition(0, 0);
+
+    for (std::size_t i = 0; i < field.gridSize; ++i) {
+        for (std::size_t j = 0; j < field.gridSize; ++j) {
+            if (i == 0 && j == 0 ||
+                i == field.gridSize - 1 && j == field.gridSize - 1 ||
+                i == 0 && j == field.gridSize - 1 ||
+                i == field.gridSize - 1 && j == 0)
+                os << '+';
+            else if (i == 0 || i == field.gridSize - 1)
+                os << '-';
+            else if (j == 0 || j == field.gridSize - 1)
+                os << '|';
+            else
+                os << ' ';
+        }
+        os << std::endl;
+    }
+
+    // Displays all humanoids
+    for (Humanoid* h : field.humanoids) {
+        setCursorPosition(h->x(), h->y());
+        os << *h;
+    }
+
+    return os;
+}
+
+void setCursorPosition(std::size_t x, std::size_t y) {
     COORD cursorPosition;
-    cursorPosition.X = 0;
-    cursorPosition.Y = 0;
-
-    os << "+----------+" << std::endl;
-    os << "|          |" << std::endl;
-    os << "|          |" << std::endl;
-    os << "|          |" << std::endl;
-    os << "|          |" << std::endl;
-    os << "|          |" << std::endl;
-    os << "|          |" << std::endl;
-    os << "+----------+" << std::endl;
-
-    Sleep(1000);
-    // update display
-    cursorPosition.X = 5;
-    cursorPosition.Y = 5;
+    cursorPosition.X = x;
+    cursorPosition.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
-    os << 'c';
-    //
+}
 
-    return field.display(os);
+Field::Field(std::size_t size) : gridSize(size), turn(0) {
+    Buffy* b = new Buffy;
+    b->setPosition(11, 4);
+
+    Vampire* v = new Vampire;
+    v->setPosition(4, 18);
+
+    for (int i = 0; i < 15; ++i) {
+        Human* h = new Human;
+        h->setPosition(8, 11);
+
+        humanoids.push_back(h);
+    }
 }
 
 int Field::nextTurn() {
@@ -67,7 +96,7 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
             std::size_t otherX = h->x();
             std::size_t otherY = h->y();
             // calcul de la distance entre les 2 coordonées
-            double tempClosestDistance = hypot(abs(otherX - fromX), abs(otherY - fromY));
+            double tempClosestDistance = hypot(abs(int(otherX - fromX)), abs(int(otherY - fromY)));
             if (tempClosestDistance < closestDistance) {
                 closestDistance = tempClosestDistance;
                 nearest = h;
@@ -77,46 +106,6 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
     return nearest;
 }
 
-Field::Field(std::size_t size) : size(size), map(std::vector<std::vector<char>>(size,std::vector<char>(size,' '))) {
-
+std::size_t Field::size() const {
+    return gridSize;
 }
-
-std::string getLine(size_t n) {
-    return "+" + std::string(n, '-') + "+";
-}
-
-// TODO : possibilité de factoriser ça (les couleurs)
-std::ostream& Field::display(std::ostream& os) const {
-    COORD cursorPosition;
-
-    for (auto h : humanoids) {
-        cursorPosition.X = h->x();
-        cursorPosition.Y = h->y();
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
-        os << 'c';
-    }
-
-    return os;
-//    os << getLine(size) << std::endl;
-//    for (const std::vector<char>& line : map) {
-//        os << "|";
-//        for (char c : line) {
-//            if (c == 'c') {
-//                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2 /* get entity color */);
-//                os << c;
-//                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 /* get default color */);
-//            } else {
-//                os << c;
-//            }
-//        }
-//        os << "|" << std::endl;
-//    }
-//    os << getLine(size) << std::endl;
-//    return os;
-}
-
-void Field::updateDisplay(std::size_t x, std::size_t y, char c) {
-    std::cout ;
-}
-
-
