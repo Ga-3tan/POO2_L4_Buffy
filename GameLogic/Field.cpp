@@ -4,7 +4,6 @@
 
 #include <cmath>
 #include "Field.h"
-#include "../Utils/Coordinate.h"
 #include <limits>
 
 int Field::nextTurn() {
@@ -32,7 +31,7 @@ int Field::nextTurn() {
     return turn++;
 }
 
-Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) {
+Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
     Humanoid *nearest = nullptr;
     std::size_t fromX = from->x();
     std::size_t fromY = from->y();
@@ -52,7 +51,29 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) {
     return nearest;
 }
 
-Field::Field(std::size_t size) : size(size) {
+Field::Field(std::size_t size) : size(size), map(std::vector<std::vector<char>>(size,std::vector<char>(size,' '))) {
 
+}
+
+// TODO : possibilité de factoriser ça
+std::string Field::display() const {
+    std::string display = "+";
+    for (std::size_t i = 0; i < size; i++ ) display += "-";
+    display += "+\n";
+    for (std::vector<char> line : map) {
+        display += "|";
+        for (char c : line) {
+            display += c;
+        }
+        display += "|\n";
+    }
+    display += "+";
+    for (std::size_t i = 0; i < size; i++ ) display += "-";
+    display += "+\n";
+    return display;
+}
+
+void Field::updateDisplay(std::size_t x, std::size_t y, char c) {
+    map[x][y] = c;
 }
 
