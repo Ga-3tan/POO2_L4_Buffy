@@ -5,7 +5,7 @@
 #include "Move.h"
 
 void Move::execute(const Field &field) {
-    *actor.setPosition(destX, destY);
+    actor->setPosition(destX, destY);
     // TODO : update "game show grid" ? a 2D char grid with only representation of entities
 }
 

@@ -8,7 +8,7 @@
 #include <cstddef>
 
 class Game {
-
+public:
     void start(std::size_t gridSize);
 
 };
