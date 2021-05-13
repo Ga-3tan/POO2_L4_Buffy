@@ -8,7 +8,12 @@
 #include "Action.h"
 
 class Move : public Action {
-    void execute(const Field& field) override;
+    std::size_t destX;
+    std::size_t destY;
+public:
+    Move(Humanoid *actor, std::size_t destX, std::size_t destY);
+
+    void execute(const Field &field) override;
 };
 
 

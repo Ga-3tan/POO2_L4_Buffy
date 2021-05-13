@@ -13,8 +13,11 @@ class Field;
 #include "../Entities/Humanoid.h"
 
 class Action {
+    // TODO weak ptr ?
+protected:
     Humanoid* actor;
-
+public:
+    Action(Humanoid* actor);
     virtual void execute(const Field& field) = 0;
 };
 

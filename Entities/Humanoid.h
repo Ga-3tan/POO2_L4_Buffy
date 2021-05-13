@@ -21,6 +21,7 @@ private:
 public:
     std::size_t x() const;
     std::size_t y() const;
+    void setPosition(std::size_t x, std::size_t y);
     bool isAlive() const;
     virtual void setAction(const Field& f) = 0;
     void executeAction(const Field& f);

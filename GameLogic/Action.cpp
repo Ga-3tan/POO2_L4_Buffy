@@ -4,6 +4,6 @@
 
 #include "Action.h"
 
-void Action::execute(const Field &field) {
+Action::Action(Humanoid *actor) : actor(actor) {
 
 }

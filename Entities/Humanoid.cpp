@@ -19,3 +19,8 @@ bool Humanoid::isAlive() const {
 void Humanoid::executeAction(const Field &f) {
 
 }
+
+void Humanoid::setPosition(std::size_t x, std::size_t y) {
+    this->xPos = x;
+    this->yPos = y;
+}

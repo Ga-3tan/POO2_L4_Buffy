@@ -8,7 +8,28 @@
 #include <limits>
 
 int Field::nextTurn() {
-    return 0;
+    // Déterminer les prochaines actions
+    for (Humanoid* humanoid : humanoids) {
+        humanoid->setAction(*this);
+    }
+
+    // Executer les actions
+    for (Humanoid* humanoid : humanoids) {
+        humanoid->executeAction(*this);
+    }
+
+    // Enlever les humanoides tués
+    for (std::list<Humanoid*>::iterator it = humanoids.begin(); it != humanoids.end(); ) {
+        if (!(*it)->isAlive()) {
+            Humanoid* toDelete = *it;
+            it = humanoids.erase(it); // suppression de l’élément dans la liste
+            delete toDelete; // destruction de l’humanoide référencé
+        }
+        else {
+            it++;
+        }
+    }
+    return turn++;
 }
 
 Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) {
