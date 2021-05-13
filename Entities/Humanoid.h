@@ -5,6 +5,9 @@
 #ifndef POO2_L4_BUFFY_HUMANOID_H
 #define POO2_L4_BUFFY_HUMANOID_H
 
+// sinon "... does not name a type"
+class Action;
+
 #include <cstdio>
 #include "../GameLogic/Action.h"
 #include "../GameLogic/Field.h"
@@ -13,7 +16,7 @@ class Humanoid {
 private:
     std::size_t xPos, yPos;
     bool alive;
-    Action action;
+    Action* action;
 
 public:
     std::size_t x() const;

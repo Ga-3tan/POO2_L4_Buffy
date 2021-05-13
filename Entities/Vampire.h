@@ -5,7 +5,7 @@
 #ifndef POO2_L4_BUFFY_VAMPIRE_H
 #define POO2_L4_BUFFY_VAMPIRE_H
 
-#include "Vampire.h"
+#include "Humanoid.h"
 
 class Vampire : public Humanoid {
 public:

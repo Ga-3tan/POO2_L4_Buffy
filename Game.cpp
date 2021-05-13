@@ -5,8 +5,8 @@
 #include "Game.h"
 #include "GameLogic/Field.h"
 
-void Game::start() {
-    Field field;
+void Game::start(std::size_t gridSize) {
+    Field field(gridSize);
     while(true) {
         field.nextTurn();
     }

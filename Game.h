@@ -5,10 +5,11 @@
 #ifndef POO2_L4_BUFFY_GAME_H
 #define POO2_L4_BUFFY_GAME_H
 
+#include <cstddef>
 
 class Game {
 
-    void start();
+    void start(std::size_t gridSize);
 
 };
 
