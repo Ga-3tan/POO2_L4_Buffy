@@ -9,6 +9,8 @@
 
 class Buffy : public Humanoid {
 public:
+
+    Buffy();
     void setAction(const Field& f) override;
 };
 

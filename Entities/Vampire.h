@@ -9,6 +9,7 @@
 
 class Vampire : public Humanoid {
 public:
+    Vampire();
     void setAction(const Field& f) override;
 };
 

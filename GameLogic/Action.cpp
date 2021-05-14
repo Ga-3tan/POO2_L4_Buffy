@@ -4,6 +4,4 @@
 
 #include "Action.h"
 
-Action::Action(Humanoid *actor) : actor(actor) {
-
-}
+Action::Action(Humanoid* actionReciever) : actionReciever(actionReciever) {}

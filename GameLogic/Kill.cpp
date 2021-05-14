@@ -4,7 +4,7 @@
 
 #include "Kill.h"
 
-void Kill::execute(const Field &field) {
+void Kill::execute(Field &field) {
     // TODO : check if target hasn't already moved before ?
     // TODO : check if target hasn't been already killed before ?
 //    target->kill();

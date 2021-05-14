@@ -20,6 +20,7 @@
 
 class Human : public Humanoid {
 public:
+    Human();
     void setAction(const Field& f) override;
 };
 

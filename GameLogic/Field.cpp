@@ -4,7 +4,64 @@
 
 #include <cmath>
 #include "Field.h"
+#include "../Entities/Buffy.h"
+#include "../Entities/Vampire.h"
+#include "../Entities/Human.h"
 #include <limits>
+#include <windows.h>
+
+std::ostream& operator << (std::ostream& os, const Field& field) {
+    setCursorPosition(0, 0);
+
+    for (std::size_t i = 0; i < field.gridSize; ++i) {
+        for (std::size_t j = 0; j < field.gridSize; ++j) {
+            if (i == 0 && j == 0 ||
+                i == field.gridSize - 1 && j == field.gridSize - 1 ||
+                i == 0 && j == field.gridSize - 1 ||
+                i == field.gridSize - 1 && j == 0)
+                os << '+';
+            else if (i == 0 || i == field.gridSize - 1)
+                os << '-';
+            else if (j == 0 || j == field.gridSize - 1)
+                os << '|';
+            else
+                os << ' ';
+        }
+        os << std::endl;
+    }
+
+    // Displays all humanoids
+    for (Humanoid* h : field.humanoids) {
+        setCursorPosition(h->x(), h->y());
+        os << *h;
+    }
+
+    return os;
+}
+
+void setCursorPosition(std::size_t x, std::size_t y) {
+    COORD cursorPosition;
+    cursorPosition.X = x;
+    cursorPosition.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+}
+
+Field::Field(std::size_t size) : gridSize(size), turn(0) {
+    Buffy* b = new Buffy;
+    b->setPosition(11, 4);
+    humanoids.push_back(b);
+
+    Vampire* v = new Vampire;
+    v->setPosition(4, 18);
+    humanoids.push_back(v);
+
+    for (int i = 0; i < 100; ++i) {
+        Human* h = new Human;
+        h->setPosition(8, 11);
+
+        humanoids.push_back(h);
+    }
+}
 
 int Field::nextTurn() {
     // Déterminer les prochaines actions
@@ -18,13 +75,12 @@ int Field::nextTurn() {
     }
 
     // Enlever les humanoides tués
-    for (std::list<Humanoid*>::iterator it = humanoids.begin(); it != humanoids.end(); ) {
+    for (std::list<Humanoid*>::iterator it = humanoids.begin(); it != humanoids.end();) {
         if (!(*it)->isAlive()) {
             Humanoid* toDelete = *it;
             it = humanoids.erase(it); // suppression de l’élément dans la liste
             delete toDelete; // destruction de l’humanoide référencé
-        }
-        else {
+        } else {
             it++;
         }
     }
@@ -36,12 +92,13 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
     std::size_t fromX = from->x();
     std::size_t fromY = from->y();
     double closestDistance = std::numeric_limits<double>::max();
+
     for (Humanoid* h : humanoids) {
         if (typeid(*h) == typeid(type)) {
             std::size_t otherX = h->x();
             std::size_t otherY = h->y();
             // calcul de la distance entre les 2 coordonées
-            double tempClosestDistance = hypot(abs(otherX - fromX), abs(otherY - fromY));
+            double tempClosestDistance = hypot(abs(int(otherX - fromX)), abs(int(otherY - fromY)));
             if (tempClosestDistance < closestDistance) {
                 closestDistance = tempClosestDistance;
                 nearest = h;
@@ -51,29 +108,6 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
     return nearest;
 }
 
-Field::Field(std::size_t size) : size(size), map(std::vector<std::vector<char>>(size,std::vector<char>(size,' '))) {
-
+std::size_t Field::size() const {
+    return gridSize;
 }
-
-// TODO : possibilité de factoriser ça
-std::string Field::display() const {
-    std::string display = "+";
-    for (std::size_t i = 0; i < size; i++ ) display += "-";
-    display += "+\n";
-    for (std::vector<char> line : map) {
-        display += "|";
-        for (char c : line) {
-            display += c;
-        }
-        display += "|\n";
-    }
-    display += "+";
-    for (std::size_t i = 0; i < size; i++ ) display += "-";
-    display += "+\n";
-    return display;
-}
-
-void Field::updateDisplay(std::size_t x, std::size_t y, char c) {
-    map[x][y] = c;
-}
-
