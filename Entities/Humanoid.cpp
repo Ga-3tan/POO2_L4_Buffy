@@ -7,14 +7,14 @@
 #include <ctime>
 
 std::ostream& operator << (std::ostream& out, const Humanoid& o) {
-    //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), o.displayColor /* Char color */);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), o.displayColor /* Char color */);
     out << o.displayChar;
-    //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 /* Default color */);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 /* Default color */);
 
     return out;
 }
 
-Humanoid::Humanoid(char displayChar, char dispalyColor)
+Humanoid::Humanoid(char displayChar, char displayColor)
 : alive(true), displayChar(displayChar), displayColor(displayColor), action(nullptr) {
     srand (time(NULL));
 }

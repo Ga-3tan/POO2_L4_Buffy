@@ -22,7 +22,7 @@ protected:
     bool alive;
     std::shared_ptr<Action> action;
     char displayChar;
-    char displayColor;
+    unsigned int displayColor;
 
     Humanoid(char displayChar, char displayColor);
 public:

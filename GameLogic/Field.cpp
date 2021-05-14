@@ -49,11 +49,13 @@ void setCursorPosition(std::size_t x, std::size_t y) {
 Field::Field(std::size_t size) : gridSize(size), turn(0) {
     Buffy* b = new Buffy;
     b->setPosition(11, 4);
+    humanoids.push_back(b);
 
     Vampire* v = new Vampire;
     v->setPosition(4, 18);
+    humanoids.push_back(v);
 
-    for (int i = 0; i < 15; ++i) {
+    for (int i = 0; i < 100; ++i) {
         Human* h = new Human;
         h->setPosition(8, 11);
 
