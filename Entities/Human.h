@@ -20,7 +20,7 @@
 
 class Human : public Humanoid {
 public:
-    Human();
+    explicit Human(std::size_t gridSize);
     void setAction(const Field& f) override;
 };
 

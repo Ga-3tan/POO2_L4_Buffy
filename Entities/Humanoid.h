@@ -12,11 +12,9 @@ class Humanoid;
 #include <iostream>
 #include <memory>
 #include "../GameLogic/Action.h"
-#include "../GameLogic/Field.h"
 
 class Humanoid {
     friend std::ostream& operator << (std::ostream& out, const Humanoid& o);
-
 protected:
     std::size_t xPos, yPos;
     bool alive;
@@ -24,12 +22,14 @@ protected:
     char displayChar;
     unsigned int displayColor;
 
-    Humanoid(char displayChar, char displayColor);
+    Humanoid(std::size_t gridSize, char displayChar, char displayColor);
+
 public:
     std::size_t x() const;
     std::size_t y() const;
     void setPosition(std::size_t x, std::size_t y);
     bool isAlive() const;
+    void die();
     virtual void setAction(const Field& f) = 0;
     void executeAction(Field &f);
     virtual ~Humanoid() = default;

@@ -9,7 +9,7 @@
 
 class Vampire : public Humanoid {
 public:
-    Vampire();
+    explicit Vampire(std::size_t gridSize);
     void setAction(const Field& f) override;
 };
 

@@ -9,6 +9,7 @@
 #include "../Entities/Human.h"
 #include <limits>
 #include <windows.h>
+#include <ctime>
 
 std::ostream& operator << (std::ostream& os, const Field& field) {
     setCursorPosition(0, 0);
@@ -36,6 +37,7 @@ std::ostream& operator << (std::ostream& os, const Field& field) {
         os << *h;
     }
 
+    setCursorPosition(0, field.size());
     return os;
 }
 
@@ -47,17 +49,19 @@ void setCursorPosition(std::size_t x, std::size_t y) {
 }
 
 Field::Field(std::size_t size) : gridSize(size), turn(0) {
-    Buffy* b = new Buffy;
-    b->setPosition(11, 4);
+    srand (time(NULL));
+
+    Buffy* b = new Buffy(gridSize);
     humanoids.push_back(b);
 
-    Vampire* v = new Vampire;
-    v->setPosition(4, 18);
-    humanoids.push_back(v);
+    for (int i = 0; i < 10; ++i) {
+        Vampire* h = new Vampire(gridSize);
 
-    for (int i = 0; i < 100; ++i) {
-        Human* h = new Human;
-        h->setPosition(8, 11);
+        humanoids.push_back(h);
+    }
+
+    for (int i = 0; i < 10; ++i) {
+        Human* h = new Human(gridSize);
 
         humanoids.push_back(h);
     }
@@ -87,17 +91,18 @@ int Field::nextTurn() {
     return turn++;
 }
 
-Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
+Humanoid* Field::findNearby(const Humanoid* from, const std::type_info& type) const {
     Humanoid *nearest = nullptr;
     std::size_t fromX = from->x();
     std::size_t fromY = from->y();
     double closestDistance = std::numeric_limits<double>::max();
 
     for (Humanoid* h : humanoids) {
-        if (typeid(*h) == typeid(type)) {
+        if (typeid(*h) == type) {
             std::size_t otherX = h->x();
             std::size_t otherY = h->y();
-            // calcul de la distance entre les 2 coordonées
+
+            // Distance between two coordinates
             double tempClosestDistance = hypot(abs(int(otherX - fromX)), abs(int(otherY - fromY)));
             if (tempClosestDistance < closestDistance) {
                 closestDistance = tempClosestDistance;
@@ -110,4 +115,15 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
 
 std::size_t Field::size() const {
     return gridSize;
+}
+
+bool Field::isPositionOccupied(std::size_t x, std::size_t y) const {
+    bool occupied = false;
+    for (Humanoid* h : humanoids) {
+        if (h->x() == x && h->y() == y) {
+            occupied = true;
+            break;
+        }
+    }
+    return occupied;
 }

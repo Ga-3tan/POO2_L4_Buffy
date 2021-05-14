@@ -4,7 +4,6 @@
 
 #include "Humanoid.h"
 #include <windows.h>
-#include <ctime>
 
 std::ostream& operator << (std::ostream& out, const Humanoid& o) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), o.displayColor /* Char color */);
@@ -14,9 +13,12 @@ std::ostream& operator << (std::ostream& out, const Humanoid& o) {
     return out;
 }
 
-Humanoid::Humanoid(char displayChar, char displayColor)
+Humanoid::Humanoid(std::size_t gridSize, char displayChar, char displayColor)
 : alive(true), displayChar(displayChar), displayColor(displayColor), action(nullptr) {
-    srand (time(NULL));
+
+    // TODO : Cannot spawn onto another humanoid
+    xPos = rand() % (gridSize - 2) + 1;
+    yPos = rand() % (gridSize - 2) + 1;
 }
 
 std::size_t Humanoid::x() const {
@@ -29,6 +31,10 @@ std::size_t Humanoid::y() const {
 
 bool Humanoid::isAlive() const {
     return alive;
+}
+
+void Humanoid::die() {
+    alive = false;
 }
 
 void Humanoid::executeAction(Field &f) {

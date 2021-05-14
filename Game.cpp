@@ -13,9 +13,19 @@ void Game::start(std::size_t gridSize) {
     Field field(gridSize);
     std::cout << field;
 
-    while(true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        field.nextTurn();
+    std::string input;
+    std::size_t turn = 0;
+    do {
+        // Displays the game
         std::cout << field;
-    }
+
+        std::cout << "[" << turn << "] q>uit s>tatistics n>ext: ";
+        getline(std::cin, input, '\n');
+        std::cin.clear();
+
+        // TODO : How do we know when the game is over ?
+        if (input == "n")
+            turn = field.nextTurn();
+
+    } while (input != "q");
 }

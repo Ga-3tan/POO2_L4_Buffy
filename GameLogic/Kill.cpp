@@ -4,9 +4,11 @@
 
 #include "Kill.h"
 
+Kill::Kill(Humanoid *actor) : Action(actor) {}
+
 void Kill::execute(Field &field) {
     // TODO : check if target hasn't already moved before ?
     // TODO : check if target hasn't been already killed before ?
-//    target->kill();
+    actionReciever->die();
     // TODO : update "game show grid" ? a 2D char grid with only representation of entities
 }

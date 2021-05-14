@@ -25,7 +25,8 @@ class Field {
 public:
     Field(std::size_t size);
     int nextTurn();
-    Humanoid* findNearby(Humanoid* from, const std::type_info& type) const;
+    Humanoid* findNearby(const Humanoid* from, const std::type_info& type) const;
+    bool isPositionOccupied(std::size_t x, std::size_t y) const;
     std::size_t size() const;
 };
 

@@ -17,7 +17,7 @@
 #include "../GameLogic/Move.h"
 #include <memory>
 
-Human::Human() : Humanoid('h', 13 /* PINK */) {}
+Human::Human(std::size_t gridSize) : Humanoid(gridSize, 'h', 13 /* PINK */) {}
 
 void Human::setAction(const Field &f) {
     // Checks borders and moves
