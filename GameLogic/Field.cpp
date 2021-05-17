@@ -8,7 +8,6 @@
 #include "../Entities/Vampire.h"
 #include "../Entities/Human.h"
 #include <limits>
-#include <windows.h>
 #include <ctime>
 
 std::ostream& operator << (std::ostream& os, const Field& field) {
@@ -41,29 +40,24 @@ std::ostream& operator << (std::ostream& os, const Field& field) {
     return os;
 }
 
-void setCursorPosition(std::size_t x, std::size_t y) {
-    COORD cursorPosition;
-    cursorPosition.X = x;
-    cursorPosition.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
-}
-
-Field::Field(std::size_t size) : gridSize(size), turn(0) {
+Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
+: gridSize(size), turn(0) {
     srand (time(NULL));
 
+    // Adds buffy
     Buffy* b = new Buffy(gridSize);
-    humanoids.push_back(b);
+    addNewHumanoid(b);
 
-    for (int i = 0; i < 10; ++i) {
-        Vampire* h = new Vampire(gridSize);
-
-        humanoids.push_back(h);
+    // Adds the humans
+    for (int i = 0; i < nbHumans; ++i) {
+        Humanoid* h = new Human(gridSize);
+        addNewHumanoid(h);
     }
 
-    for (int i = 0; i < 10; ++i) {
-        Human* h = new Human(gridSize);
-
-        humanoids.push_back(h);
+    // Adds the vampires
+    for (int i = 0; i < nbVampires; ++i) {
+        Humanoid* v = new Vampire(gridSize);
+        addNewHumanoid(v);
     }
 }
 
@@ -117,13 +111,15 @@ std::size_t Field::size() const {
     return gridSize;
 }
 
-bool Field::isPositionOccupied(std::size_t x, std::size_t y) const {
-    bool occupied = false;
-    for (Humanoid* h : humanoids) {
-        if (h->x() == x && h->y() == y) {
-            occupied = true;
-            break;
-        }
-    }
-    return occupied;
+void Field::addNewHumanoid(Humanoid* newHumanoid) {
+    humanoids.push_back(newHumanoid);
+}
+
+std::size_t Field::getNbEntity(const std::type_info& type) const {
+    std::size_t nb = 0;
+    for (Humanoid* h : humanoids)
+        if (typeid(*h) == type)
+            ++nb;
+
+    return nb;
 }

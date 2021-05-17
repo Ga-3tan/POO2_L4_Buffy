@@ -5,7 +5,6 @@
 #ifndef POO2_L4_BUFFY_HUMANOID_H
 #define POO2_L4_BUFFY_HUMANOID_H
 
-// sinon "... does not name a type"
 class Humanoid;
 
 #include <cstdio>
@@ -17,12 +16,16 @@ class Humanoid {
     friend std::ostream& operator << (std::ostream& out, const Humanoid& o);
 protected:
     std::size_t xPos, yPos;
+    size_t speed;
     bool alive;
-    std::shared_ptr<Action> action;
     char displayChar;
     unsigned int displayColor;
+    std::shared_ptr<Action> action;
 
-    Humanoid(std::size_t gridSize, char displayChar, char displayColor);
+    Humanoid(std::size_t gridSize, std::size_t speed, char displayChar, char displayColor);
+    std::shared_ptr<Action> moveRandomly(const Field& f);
+    std::shared_ptr<Action> chaseHumanoid(const Field& f, const std::type_info& humanoidType);
+    virtual std::shared_ptr<Action> attackHumanoid(Humanoid* victim);
 
 public:
     std::size_t x() const;

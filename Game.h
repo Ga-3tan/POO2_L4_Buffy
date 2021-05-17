@@ -8,9 +8,16 @@
 #include <cstddef>
 
 class Game {
-public:
-    void start(std::size_t gridSize);
+private:
+    std::size_t gridSize;
+    std::size_t nbHumans;
+    std::size_t nbVampires;
 
+    double calculateBuffySuccess(std::size_t nbSimulations) const;
+    void clearLineAt(std::size_t pos) const;
+public:
+    explicit Game(std::size_t gridsize, std::size_t nbHumans, std::size_t nbVampires);
+    void start();
 };
 
 

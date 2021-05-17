@@ -23,11 +23,12 @@ class Field {
 
     friend std::ostream& operator << (std::ostream& os, const Field& field);
 public:
-    Field(std::size_t size);
+    Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires);
     int nextTurn();
+    void addNewHumanoid(Humanoid* newHumanoid);
     Humanoid* findNearby(const Humanoid* from, const std::type_info& type) const;
-    bool isPositionOccupied(std::size_t x, std::size_t y) const;
     std::size_t size() const;
+    std::size_t getNbEntity(const std::type_info& type) const;
 };
 
 #endif //POO2_L4_BUFFY_FIELD_H
