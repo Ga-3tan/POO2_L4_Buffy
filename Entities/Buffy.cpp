@@ -6,7 +6,7 @@
 #include "Vampire.h"
 #include <memory>
 
-Buffy::Buffy(std::size_t gridSize) : Humanoid(gridSize, 2, 'B', 14 /* YELLOW */) {}
+Buffy::Buffy() : Humanoid(2, 'B', 14 /* YELLOW */) {}
 
 void Buffy::setAction(const Field &f) {
     // Chases vampire or moves randomly

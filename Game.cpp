@@ -12,6 +12,7 @@
 Game::Game(std::size_t gridSize, std::size_t nbHumans, std::size_t nbVampires)
 : gridSize(gridSize), nbHumans(nbHumans), nbVampires(nbVampires) {}
 
+// TODO : La méthode est globale (faire classe ConsoleManager avec fnc statique)
 void setCursorPosition(std::size_t x, std::size_t y) {
     COORD cursorPosition;
     cursorPosition.X = x;
@@ -37,7 +38,7 @@ void Game::start() {
             turn = field.nextTurn();
             if (field.getNbEntity(typeid(Vampire)) == 0) input = "q";
         } else if (input == "s") {
-            double result = calculateBuffySuccess(50000) * 100.;
+            double result = calculateBuffySuccess(1000) * 100.;
             clearLineAt(gridSize + 2);
             std::cout << "Percentage of Buffy wins : " << result << "%" << std::endl;
         }
@@ -68,8 +69,10 @@ double Game::calculateBuffySuccess(std::size_t nbSimulations) const {
     return nbBuffyWins / (double)nbSimulations;
 }
 
+// TODO : Fonction de la classe ConsoleManager en statique
 void Game::clearLineAt(std::size_t pos) const {
+    // TODO :Revoir le clear de la ligne
     setCursorPosition(0, pos);
-    std::cout << "                                                     ";
+    std::cout <<  "                                                      ";
     setCursorPosition(0, pos);
 }

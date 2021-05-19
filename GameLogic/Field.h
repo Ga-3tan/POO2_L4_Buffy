@@ -29,6 +29,7 @@ public:
     Humanoid* findNearby(const Humanoid* from, const std::type_info& type) const;
     std::size_t size() const;
     std::size_t getNbEntity(const std::type_info& type) const;
+    ~Field(); // TODO : implémenter la destruction des humanoids
 };
 
 #endif //POO2_L4_BUFFY_FIELD_H

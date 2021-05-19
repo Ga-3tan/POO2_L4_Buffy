@@ -7,7 +7,7 @@
 #include "Human.h"
 #include "../GameLogic/Convert.h"
 
-Vampire::Vampire(std::size_t gridSize) : Humanoid(gridSize, 1, 'V', 9 /* BLUE */) {}
+Vampire::Vampire() : Humanoid(1, 'V', 9 /* BLUE */) {}
 
 void Vampire::setAction(const Field &f) {
     action = chaseHumanoid(f, typeid(Human));

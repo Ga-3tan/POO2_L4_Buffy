@@ -16,9 +16,9 @@
 #include "Human.h"
 #include <memory>
 
-Human::Human(std::size_t gridSize) : Humanoid(gridSize, 1, 'h', 13 /* PINK */) {}
+Human::Human() : Humanoid(1, 'h', 13 /* PINK */) {}
 
 void Human::setAction(const Field &f) {
     // Moves randomly
-    action = moveRandomly(f);;
+    action = moveRandomly(f);
 }

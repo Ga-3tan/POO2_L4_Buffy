@@ -9,7 +9,7 @@
 
 class Buffy : public Humanoid {
 public:
-    explicit Buffy(std::size_t gridSize);
+    explicit Buffy();
     void setAction(const Field& f) override;
 };
 

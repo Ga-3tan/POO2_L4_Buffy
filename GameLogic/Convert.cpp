@@ -13,7 +13,7 @@ void Convert::execute(Field &field) {
 
     if (chance) {
         // Converts the humanoid
-        Humanoid* converted = new Vampire(field.size());
+        Humanoid* converted = new Vampire();
         converted->setPosition(actionReciever->x(), actionReciever->y());
         field.addNewHumanoid(converted);
     }

@@ -16,12 +16,8 @@ std::ostream& operator << (std::ostream& out, const Humanoid& o) {
     return out;
 }
 
-Humanoid::Humanoid(std::size_t gridSize, std::size_t speed, char displayChar, char displayColor)
-: alive(true), speed(speed), displayChar(displayChar), displayColor(displayColor), action(nullptr) {
-
-    // Spawns on the field
-    xPos = rand() % (gridSize - 2) + 1;
-    yPos = rand() % (gridSize - 2) + 1;
+Humanoid::Humanoid(std::size_t speed, char displayChar, char displayColor)
+: xPos(0), yPos(0), alive(true), speed(speed), displayChar(displayChar), displayColor(displayColor), action(nullptr) {
 }
 
 std::size_t Humanoid::x() const {

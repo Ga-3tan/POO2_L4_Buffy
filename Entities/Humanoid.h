@@ -22,7 +22,7 @@ protected:
     unsigned int displayColor;
     std::shared_ptr<Action> action;
 
-    Humanoid(std::size_t gridSize, std::size_t speed, char displayChar, char displayColor);
+    Humanoid(std::size_t speed, char displayChar, char displayColor);
     std::shared_ptr<Action> moveRandomly(const Field& f);
     std::shared_ptr<Action> chaseHumanoid(const Field& f, const std::type_info& humanoidType);
     virtual std::shared_ptr<Action> attackHumanoid(Humanoid* victim);

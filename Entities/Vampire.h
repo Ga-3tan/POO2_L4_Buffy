@@ -9,7 +9,7 @@
 
 class Vampire : public Humanoid {
 public:
-    explicit Vampire(std::size_t gridSize);
+    explicit Vampire();
     void setAction(const Field& f) override;
     std::shared_ptr<Action> attackHumanoid(Humanoid* victim) override;
 };

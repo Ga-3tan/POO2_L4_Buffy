@@ -45,18 +45,23 @@ Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
     srand (time(NULL));
 
     // Adds buffy
-    Buffy* b = new Buffy(gridSize);
+    Buffy* b = new Buffy();
+    b->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
+
+    // Spawns on the field
     addNewHumanoid(b);
 
     // Adds the humans
     for (int i = 0; i < nbHumans; ++i) {
-        Humanoid* h = new Human(gridSize);
+        Humanoid* h = new Human();
+        h->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
         addNewHumanoid(h);
     }
 
     // Adds the vampires
     for (int i = 0; i < nbVampires; ++i) {
-        Humanoid* v = new Vampire(gridSize);
+        Humanoid* v = new Vampire();
+        v->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
         addNewHumanoid(v);
     }
 }
