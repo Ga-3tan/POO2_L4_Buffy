@@ -7,7 +7,7 @@
 
 class Action;
 
-#include "Field.h"
+#include "../Field.h"
 #include "../Entities/Humanoid.h"
 
 class Action {

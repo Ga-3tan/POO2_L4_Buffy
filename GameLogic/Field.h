@@ -11,17 +11,20 @@ class Field;
 #include <list>
 #include <vector>
 #include <string>
-#include "../Entities/Humanoid.h"
+#include "Entities/Humanoid.h"
+#include "../Utils/Coordinate.h"
 
-std::ostream& operator << (std::ostream& os, const Field& field);
-void setCursorPosition(std::size_t x, std::size_t y);
+std::ostream& operator << (std::ostream& os, Field& field);
 
 class Field {
     std::list<Humanoid*> humanoids;
+    std::list<Coordinate> oldDisplayCoords;
     std::size_t gridSize;
     int turn;
 
-    friend std::ostream& operator << (std::ostream& os, const Field& field);
+    friend std::ostream& operator << (std::ostream& os, Field& field);
+    std::size_t getRandomPos() const;
+
 public:
     Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires);
     int nextTurn();
@@ -29,7 +32,7 @@ public:
     Humanoid* findNearby(const Humanoid* from, const std::type_info& type) const;
     std::size_t size() const;
     std::size_t getNbEntity(const std::type_info& type) const;
-    ~Field(); // TODO : implémenter la destruction des humanoids
+    ~Field();
 };
 
 #endif //POO2_L4_BUFFY_FIELD_H

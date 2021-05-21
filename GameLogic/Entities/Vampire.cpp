@@ -5,7 +5,7 @@
 #include <cmath>
 #include "Vampire.h"
 #include "Human.h"
-#include "../GameLogic/Convert.h"
+#include "../Actions/Convert.h"
 
 Vampire::Vampire() : Humanoid(1, 'V', 9 /* BLUE */) {}
 

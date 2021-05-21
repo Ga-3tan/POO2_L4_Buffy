@@ -10,12 +10,14 @@ class Humanoid;
 #include <cstdio>
 #include <iostream>
 #include <memory>
-#include "../GameLogic/Action.h"
+#include "../Actions/Action.h"
+#include "../../Utils/Coordinate.h"
+
 
 class Humanoid {
     friend std::ostream& operator << (std::ostream& out, const Humanoid& o);
 protected:
-    std::size_t xPos, yPos;
+    Coordinate position;
     size_t speed;
     bool alive;
     char displayChar;

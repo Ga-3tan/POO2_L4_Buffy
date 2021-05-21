@@ -4,9 +4,7 @@
 
 #include "Coordinate.h"
 
-Coordinate::Coordinate(std::size_t x, std::size_t y) {
-
-}
+Coordinate::Coordinate(std::size_t x, std::size_t y) : x(x), y(y) {}
 
 size_t Coordinate::getX() const {
     return x;

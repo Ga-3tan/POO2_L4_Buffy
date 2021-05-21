@@ -17,11 +17,11 @@ public:
 
     bool operator!=(const Coordinate &rhs) const;
 
-    size_t getX() const;
+    std::size_t getX() const;
 
     void setX(size_t x);
 
-    size_t getY() const;
+    std::size_t getY() const;
 
     void setY(size_t y);
 };

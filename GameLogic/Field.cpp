@@ -4,66 +4,79 @@
 
 #include <cmath>
 #include "Field.h"
-#include "../Entities/Buffy.h"
-#include "../Entities/Vampire.h"
-#include "../Entities/Human.h"
+#include "Entities/Buffy.h"
+#include "Entities/Vampire.h"
+#include "Entities/Human.h"
+#include "../Utils/ConsoleManager.h"
 #include <limits>
 #include <ctime>
 
-std::ostream& operator << (std::ostream& os, const Field& field) {
-    setCursorPosition(0, 0);
+std::ostream& operator << (std::ostream& os, Field& field) {
+    // If first turn, draws the borders
+    if (field.turn == 0) {
 
-    for (std::size_t i = 0; i < field.gridSize; ++i) {
-        for (std::size_t j = 0; j < field.gridSize; ++j) {
-            if (i == 0 && j == 0 ||
-                i == field.gridSize - 1 && j == field.gridSize - 1 ||
-                i == 0 && j == field.gridSize - 1 ||
-                i == field.gridSize - 1 && j == 0)
-                os << '+';
-            else if (i == 0 || i == field.gridSize - 1)
-                os << '-';
-            else if (j == 0 || j == field.gridSize - 1)
-                os << '|';
-            else
-                os << ' ';
+        // Displays left and right borders
+        for (std::size_t i = 0; i < field.size(); ++i) {
+            char border = i == 0 || i == field.size() - 1 ? '+' : '|';
+            ConsoleManager::setCursorPosition(0, i);
+            os << border;
+            ConsoleManager::setCursorPosition(field.size() - 1, i);
+            os << border;
         }
-        os << std::endl;
+
+        // Displays up and bottom borders
+        for (std::size_t i = 0; i < field.size(); ++i) {
+            char border = i == 0 || i == field.size() - 1 ? '+' : '-';
+            ConsoleManager::setCursorPosition(i, 0);
+            os << border;
+            ConsoleManager::setCursorPosition(i, field.size() - 1);
+            os << border;
+        }
+    } else {
+
+        // Clears old display positions
+        while(!field.oldDisplayCoords.empty()) {
+            ConsoleManager::setCursorPosition(field.oldDisplayCoords.front().getX(),
+                                              field.oldDisplayCoords.front().getY());
+            os << ' ';
+            field.oldDisplayCoords.pop_front();
+        }
     }
 
     // Displays all humanoids
     for (Humanoid* h : field.humanoids) {
-        setCursorPosition(h->x(), h->y());
+        ConsoleManager::setCursorPosition(h->x(), h->y());
         os << *h;
+
+        // Adds the position to the display coords
+        field.oldDisplayCoords.emplace_back(h->x(), h->y());
     }
 
-    setCursorPosition(0, field.size());
     return os;
 }
 
 Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
 : gridSize(size), turn(0) {
-    srand (time(NULL));
-
-    // Adds buffy
-    Buffy* b = new Buffy();
-    b->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
-
-    // Spawns on the field
-    addNewHumanoid(b);
-
     // Adds the humans
     for (int i = 0; i < nbHumans; ++i) {
         Humanoid* h = new Human();
-        h->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
+        h->setPosition(getRandomPos(), getRandomPos());
         addNewHumanoid(h);
     }
 
     // Adds the vampires
     for (int i = 0; i < nbVampires; ++i) {
         Humanoid* v = new Vampire();
-        v->setPosition(rand() % (gridSize - 2) + 1, rand() % (gridSize - 2) + 1);
+        v->setPosition(getRandomPos(), getRandomPos());
         addNewHumanoid(v);
     }
+
+    // Adds buffy
+    Buffy* b = new Buffy();
+    b->setPosition(getRandomPos(), getRandomPos());
+
+    // Spawns on the field
+    addNewHumanoid(b);
 }
 
 int Field::nextTurn() {
@@ -127,4 +140,13 @@ std::size_t Field::getNbEntity(const std::type_info& type) const {
             ++nb;
 
     return nb;
+}
+
+Field::~Field() {
+    for (Humanoid* h : humanoids)
+        delete h;
+}
+
+std::size_t Field::getRandomPos() const {
+    return rand() % (size() - 2) + 1;
 }

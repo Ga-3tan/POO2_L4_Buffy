@@ -3,32 +3,29 @@
 //
 
 #include "Game.h"
-#include "Entities/Vampire.h"
-#include "Entities/Human.h"
+#include "GameLogic/Entities/Vampire.h"
+#include "GameLogic/Entities/Human.h"
 #include "GameLogic/Field.h"
+#include "Utils/ConsoleManager.h"
 #include <iostream>
-#include <windows.h>
+#include <iomanip>
+#include <cmath>
 
 Game::Game(std::size_t gridSize, std::size_t nbHumans, std::size_t nbVampires)
-: gridSize(gridSize), nbHumans(nbHumans), nbVampires(nbVampires) {}
-
-// TODO : La méthode est globale (faire classe ConsoleManager avec fnc statique)
-void setCursorPosition(std::size_t x, std::size_t y) {
-    COORD cursorPosition;
-    cursorPosition.X = x;
-    cursorPosition.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+: gridSize(gridSize), nbHumans(nbHumans), nbVampires(nbVampires) {
+    srand (time(NULL));
 }
 
-void Game::start() {
+void Game::start() const {
     Field field(gridSize, nbHumans, nbVampires);
     std::cout << field;
+    ConsoleManager::setCursorPosition(0, field.size());
 
+    // Game loop
     std::string input;
     std::size_t turn = 0;
     do {
         // Registers user input
-        clearLineAt(gridSize);
         std::cout << "[" << turn << "] q>uit s>tatistics n>ext: ";
         getline(std::cin, input, '\n');
         std::cin.clear();
@@ -36,43 +33,51 @@ void Game::start() {
         // Processes user input
         if (input == "n") {
             turn = field.nextTurn();
-            if (field.getNbEntity(typeid(Vampire)) == 0) input = "q";
+            if (field.getNbEntity(typeid(Vampire)) == 0) {
+                // Displays ending message
+                std::cout << "There are no more vampires, the game has ended !" << std::endl;
+                if (field.getNbEntity(typeid(Human)) != 0)
+                    std::cout << "Buffy has won ! There are human survivors !" << std::endl;
+                break;
+            }
         } else if (input == "s") {
-            double result = calculateBuffySuccess(1000) * 100.;
-            clearLineAt(gridSize + 2);
+            double result = calculateBuffySuccess();
+            ConsoleManager::setCursorPosition(0, gridSize + 2);
             std::cout << "Percentage of Buffy wins : " << result << "%" << std::endl;
         }
 
         // Displays the game
         std::cout << field;
+        ConsoleManager::setCursorPosition(0, field.size());
 
     } while (input != "q");
-
-    std::cout << "There are no more vampires, the game has ended !" << std::endl;
 }
 
-double Game::calculateBuffySuccess(std::size_t nbSimulations) const {
+double Game::calculateBuffySuccess() const {
     double nbBuffyWins = 0;
-    for (std::size_t i = 1; i <= nbSimulations; ++i) {
-        setCursorPosition(0, gridSize + 1);
-        std::cout << "Calculating statistics, simulation : " << i << "/" << nbSimulations << "    " << std::endl;
 
+    // Sets up the console log message
+    int nbDigits = NB_SIMULATIONS > 0 ? (int) log10 ((double) NB_SIMULATIONS) + 1 : 1;
+    std::string s = "Calculating statistics, simulation : ";
+    ConsoleManager::setCursorPosition(0, gridSize + 1);
+    std::cout << s << std::setw(nbDigits) << "" << "/" << NB_SIMULATIONS;
+
+    // Executes the simulations
+    for (std::size_t i = 1; i <= NB_SIMULATIONS; ++i) {
+        // Displays the simulation number
+        ConsoleManager::setCursorPosition(s.length(), gridSize + 1);
+        std::cout << std::left << std::setw(nbDigits) << i;
+
+        // Creates the field and iterates through each turn until the game ends
         Field field(gridSize, nbHumans, nbVampires);
         do {
             field.nextTurn();
         } while (field.getNbEntity(typeid(Vampire)) != 0);
 
+        // There are humans alive, buffy wins the game
         if (field.getNbEntity(typeid(Human)) > 0) ++nbBuffyWins;
     }
 
     // Returns the percentage of wins
-    return nbBuffyWins / (double)nbSimulations;
-}
-
-// TODO : Fonction de la classe ConsoleManager en statique
-void Game::clearLineAt(std::size_t pos) const {
-    // TODO :Revoir le clear de la ligne
-    setCursorPosition(0, pos);
-    std::cout <<  "                                                      ";
-    setCursorPosition(0, pos);
+    return nbBuffyWins / (double)NB_SIMULATIONS * 100.;
 }

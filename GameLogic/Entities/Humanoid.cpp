@@ -3,8 +3,8 @@
 //
 
 #include "Humanoid.h"
-#include "../GameLogic/Move.h"
-#include "../GameLogic/Kill.h"
+#include "../Actions/Move.h"
+#include "../Actions/Kill.h"
 #include <windows.h>
 #include <cmath>
 
@@ -16,16 +16,19 @@ std::ostream& operator << (std::ostream& out, const Humanoid& o) {
     return out;
 }
 
-Humanoid::Humanoid(std::size_t speed, char displayChar, char displayColor)
-: xPos(0), yPos(0), alive(true), speed(speed), displayChar(displayChar), displayColor(displayColor), action(nullptr) {
-}
+Humanoid::Humanoid(std::size_t speed, char displayChar, char displayColor) :
+position(0, 0),
+alive(true), speed(speed),
+displayChar(displayChar),
+displayColor(displayColor),
+action(nullptr) {}
 
 std::size_t Humanoid::x() const {
-    return xPos;
+    return position.getX();
 }
 
 std::size_t Humanoid::y() const {
-    return yPos;
+    return position.getY();
 }
 
 bool Humanoid::isAlive() const {
@@ -49,8 +52,8 @@ std::shared_ptr<Action> Humanoid::moveRandomly(const Field& f) {
         std::size_t yMov = rand() % 3 - 1;
         if(xMov == 0 && yMov == 0) continue;
 
-        xDest = xPos + xMov;
-        yDest = yPos + yMov;
+        xDest = x() + xMov;
+        yDest = y() + yMov;
     } while(xDest <= 0 || xDest >= f.size() - 2 ||
             yDest <= 0 || yDest >= f.size() - 2);
 
@@ -62,8 +65,8 @@ std::shared_ptr<Action> Humanoid::chaseHumanoid(const Field& f, const std::type_
     if (nearest == nullptr) return nullptr;
 
     // Gets the distances
-    int distX = nearest->x() - xPos;
-    int distY = nearest->y() - yPos;
+    int distX = nearest->x() - x();
+    int distY = nearest->y() - y();
 
     // Checks if the humanoid is in kill range
     if (hypot(abs(distX), abs(distY)) <= sqrt(2)) {
@@ -75,17 +78,17 @@ std::shared_ptr<Action> Humanoid::chaseHumanoid(const Field& f, const std::type_
         std::size_t movY = distY == 0 ? 0 : distY > 0 ? speed : -speed;
 
         // Out of bounds verification
-        if (xPos + movX <= 0 || xPos + movX >= f.size() - 2 ||
-            yPos + movY <= 0 || yPos + movY >= f.size() - 2)
+        if (x() + movX <= 0 || x() + movX >= f.size() - 2 ||
+            y() + movY <= 0 || y() + movY >= f.size() - 2)
             return nullptr;
 
-        return std::make_shared<Move>(this, xPos + movX, yPos + movY);
+        return std::make_shared<Move>(this, x() + movX, y() + movY);
     }
 }
 
 void Humanoid::setPosition(std::size_t x, std::size_t y) {
-    this->xPos = x;
-    this->yPos = y;
+    position.setX(x);
+    position.setY(y);
 }
 
 std::shared_ptr<Action> Humanoid::attackHumanoid(Humanoid* victim) {
