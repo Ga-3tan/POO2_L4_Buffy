@@ -1,6 +1,8 @@
-//
-// Created by gaeta on 05.05.2021.
-//
+/**
+ * @file Action.cpp
+ * @authors Gaétan Zwick, Marco Maziero
+ * @date 21.05.2021
+ */
 
 #include "Action.h"
 

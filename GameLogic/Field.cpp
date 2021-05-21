@@ -1,6 +1,8 @@
-//
-// Created by gaeta on 05.05.2021.
-//
+/**
+ * @file Field.cpp
+ * @authors Gaétan Zwick, Marco Maziero
+ * @date 21.05.2021
+ */
 
 #include <cmath>
 #include "Field.h"
@@ -9,7 +11,6 @@
 #include "Entities/Human.h"
 #include "../Utils/ConsoleManager.h"
 #include <limits>
-#include <ctime>
 
 std::ostream& operator << (std::ostream& os, Field& field) {
     // If first turn, draws the borders
@@ -54,6 +55,11 @@ std::ostream& operator << (std::ostream& os, Field& field) {
 
     return os;
 }
+
+std::size_t Field::getRandomPos() const {
+    return rand() % (size() - 2) + 1;
+}
+
 
 Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
 : gridSize(size), turn(0) {
@@ -103,6 +109,10 @@ int Field::nextTurn() {
     return turn++;
 }
 
+void Field::addNewHumanoid(Humanoid* newHumanoid) {
+    humanoids.push_front(newHumanoid);
+}
+
 Humanoid* Field::findNearby(const Humanoid* from, const std::type_info& type) const {
     Humanoid *nearest = nullptr;
     std::size_t fromX = from->x();
@@ -129,10 +139,6 @@ std::size_t Field::size() const {
     return gridSize;
 }
 
-void Field::addNewHumanoid(Humanoid* newHumanoid) {
-    humanoids.push_back(newHumanoid);
-}
-
 std::size_t Field::getNbEntity(const std::type_info& type) const {
     std::size_t nb = 0;
     for (Humanoid* h : humanoids)
@@ -145,8 +151,4 @@ std::size_t Field::getNbEntity(const std::type_info& type) const {
 Field::~Field() {
     for (Humanoid* h : humanoids)
         delete h;
-}
-
-std::size_t Field::getRandomPos() const {
-    return rand() % (size() - 2) + 1;
 }

@@ -1,6 +1,8 @@
-//
-// Created by Marco on 17.05.2021.
-//
+/**
+ * @file Convert.cpp
+ * @authors Gaétan Zwick, Marco Maziero
+ * @date 21.05.2021
+ */
 
 #include "../Field.h"
 #include "Convert.h"

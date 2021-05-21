@@ -1,6 +1,8 @@
-//
-// Created by gaeta on 05.05.2021.
-//
+/**
+ * @file Coordinate.cpp
+ * @authors Gaétan Zwick, Marco Maziero
+ * @date 21.05.2021
+ */
 
 #include "Coordinate.h"
 
@@ -20,13 +22,4 @@ size_t Coordinate::getY() const {
 
 void Coordinate::setY(size_t y) {
     Coordinate::y = y;
-}
-
-bool Coordinate::operator==(const Coordinate &rhs) const {
-    return x == rhs.x &&
-           y == rhs.y;
-}
-
-bool Coordinate::operator!=(const Coordinate &rhs) const {
-    return !(rhs == *this);
 }
