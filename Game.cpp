@@ -3,19 +3,83 @@
 //
 
 #include "Game.h"
+#include "GameLogic/Entities/Vampire.h"
+#include "GameLogic/Entities/Human.h"
 #include "GameLogic/Field.h"
+#include "Utils/ConsoleManager.h"
 #include <iostream>
-#include <chrono>
-#include <thread>
+#include <iomanip>
+#include <cmath>
 
+Game::Game(std::size_t gridSize, std::size_t nbHumans, std::size_t nbVampires)
+: gridSize(gridSize), nbHumans(nbHumans), nbVampires(nbVampires) {
+    srand (time(NULL));
+}
 
-void Game::start(std::size_t gridSize) {
-    Field field(gridSize);
+void Game::start() const {
+    Field field(gridSize, nbHumans, nbVampires);
     std::cout << field;
+    ConsoleManager::setCursorPosition(0, field.size());
 
-    while(true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        field.nextTurn();
-        std::cout << field;
+    // Game loop
+    std::string input;
+    std::size_t turn = 0;
+    do {
+        // Registers user input
+        ConsoleManager::setCursorPosition(0, field.size());
+        std::cout << "[" << turn << "] q>uit s>tatistics n>ext: ";
+        getline(std::cin, input, '\n');
+        std::cin.clear();
+
+        // Processes user input
+        if (input == "n") {
+            // Plays next turn and displays the game grid
+            turn = field.nextTurn();
+            std::cout << field;
+
+            // Checks if the game is over
+            if (field.getNbEntity(typeid(Vampire)) == 0) {
+                // Displays ending message
+                ConsoleManager::setCursorPosition(0, field.size() + 1);
+                std::cout << "There are no more vampires, the game has ended !" << std::endl;
+                if (field.getNbEntity(typeid(Human)) != 0)
+                    std::cout << "Buffy has won ! There are human survivors !" << std::endl;
+                input = "q";
+            }
+        } else if (input == "s") {
+            double result = calculateBuffySuccess();
+            ConsoleManager::setCursorPosition(0, gridSize + 2);
+            std::cout << "Percentage of Buffy wins : " << result << "%" << std::endl;
+        }
+
+    } while (input != "q");
+}
+
+double Game::calculateBuffySuccess() const {
+    double nbBuffyWins = 0;
+
+    // Sets up the console log message
+    int nbDigits = NB_SIMULATIONS > 0 ? (int) log10 ((double) NB_SIMULATIONS) + 1 : 1;
+    std::string s = "Calculating statistics, simulation : ";
+    ConsoleManager::setCursorPosition(0, gridSize + 1);
+    std::cout << s << std::setw(nbDigits) << "" << "/" << NB_SIMULATIONS;
+
+    // Executes the simulations
+    for (std::size_t i = 1; i <= NB_SIMULATIONS; ++i) {
+        // Displays the simulation number
+        ConsoleManager::setCursorPosition(s.length(), gridSize + 1);
+        std::cout << std::left << std::setw(nbDigits) << i;
+
+        // Creates the field and iterates through each turn until the game ends
+        Field field(gridSize, nbHumans, nbVampires);
+        do {
+            field.nextTurn();
+        } while (field.getNbEntity(typeid(Vampire)) != 0);
+
+        // There are humans alive, buffy wins the game
+        if (field.getNbEntity(typeid(Human)) > 0) ++nbBuffyWins;
     }
+
+    // Returns the percentage of wins
+    return nbBuffyWins / (double)NB_SIMULATIONS * 100.;
 }

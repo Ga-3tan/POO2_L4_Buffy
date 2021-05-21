@@ -4,63 +4,79 @@
 
 #include <cmath>
 #include "Field.h"
-#include "../Entities/Buffy.h"
-#include "../Entities/Vampire.h"
-#include "../Entities/Human.h"
+#include "Entities/Buffy.h"
+#include "Entities/Vampire.h"
+#include "Entities/Human.h"
+#include "../Utils/ConsoleManager.h"
 #include <limits>
-#include <windows.h>
+#include <ctime>
 
-std::ostream& operator << (std::ostream& os, const Field& field) {
-    setCursorPosition(0, 0);
+std::ostream& operator << (std::ostream& os, Field& field) {
+    // If first turn, draws the borders
+    if (field.turn == 0) {
 
-    for (std::size_t i = 0; i < field.gridSize; ++i) {
-        for (std::size_t j = 0; j < field.gridSize; ++j) {
-            if (i == 0 && j == 0 ||
-                i == field.gridSize - 1 && j == field.gridSize - 1 ||
-                i == 0 && j == field.gridSize - 1 ||
-                i == field.gridSize - 1 && j == 0)
-                os << '+';
-            else if (i == 0 || i == field.gridSize - 1)
-                os << '-';
-            else if (j == 0 || j == field.gridSize - 1)
-                os << '|';
-            else
-                os << ' ';
+        // Displays left and right borders
+        for (std::size_t i = 0; i < field.size(); ++i) {
+            char border = i == 0 || i == field.size() - 1 ? '+' : '|';
+            ConsoleManager::setCursorPosition(0, i);
+            os << border;
+            ConsoleManager::setCursorPosition(field.size() - 1, i);
+            os << border;
         }
-        os << std::endl;
+
+        // Displays up and bottom borders
+        for (std::size_t i = 0; i < field.size(); ++i) {
+            char border = i == 0 || i == field.size() - 1 ? '+' : '-';
+            ConsoleManager::setCursorPosition(i, 0);
+            os << border;
+            ConsoleManager::setCursorPosition(i, field.size() - 1);
+            os << border;
+        }
+    } else {
+
+        // Clears old display positions
+        while(!field.oldDisplayCoords.empty()) {
+            ConsoleManager::setCursorPosition(field.oldDisplayCoords.front().getX(),
+                                              field.oldDisplayCoords.front().getY());
+            os << ' ';
+            field.oldDisplayCoords.pop_front();
+        }
     }
 
     // Displays all humanoids
     for (Humanoid* h : field.humanoids) {
-        setCursorPosition(h->x(), h->y());
+        ConsoleManager::setCursorPosition(h->x(), h->y());
         os << *h;
+
+        // Adds the position to the display coords
+        field.oldDisplayCoords.emplace_back(h->x(), h->y());
     }
 
     return os;
 }
 
-void setCursorPosition(std::size_t x, std::size_t y) {
-    COORD cursorPosition;
-    cursorPosition.X = x;
-    cursorPosition.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
-}
-
-Field::Field(std::size_t size) : gridSize(size), turn(0) {
-    Buffy* b = new Buffy;
-    b->setPosition(11, 4);
-    humanoids.push_back(b);
-
-    Vampire* v = new Vampire;
-    v->setPosition(4, 18);
-    humanoids.push_back(v);
-
-    for (int i = 0; i < 100; ++i) {
-        Human* h = new Human;
-        h->setPosition(8, 11);
-
-        humanoids.push_back(h);
+Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
+: gridSize(size), turn(0) {
+    // Adds the humans
+    for (int i = 0; i < nbHumans; ++i) {
+        Humanoid* h = new Human();
+        h->setPosition(getRandomPos(), getRandomPos());
+        addNewHumanoid(h);
     }
+
+    // Adds the vampires
+    for (int i = 0; i < nbVampires; ++i) {
+        Humanoid* v = new Vampire();
+        v->setPosition(getRandomPos(), getRandomPos());
+        addNewHumanoid(v);
+    }
+
+    // Adds buffy
+    Buffy* b = new Buffy();
+    b->setPosition(getRandomPos(), getRandomPos());
+
+    // Spawns on the field
+    addNewHumanoid(b);
 }
 
 int Field::nextTurn() {
@@ -87,17 +103,18 @@ int Field::nextTurn() {
     return turn++;
 }
 
-Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
+Humanoid* Field::findNearby(const Humanoid* from, const std::type_info& type) const {
     Humanoid *nearest = nullptr;
     std::size_t fromX = from->x();
     std::size_t fromY = from->y();
     double closestDistance = std::numeric_limits<double>::max();
 
     for (Humanoid* h : humanoids) {
-        if (typeid(*h) == typeid(type)) {
+        if (typeid(*h) == type) {
             std::size_t otherX = h->x();
             std::size_t otherY = h->y();
-            // calcul de la distance entre les 2 coordonées
+
+            // Distance between two coordinates
             double tempClosestDistance = hypot(abs(int(otherX - fromX)), abs(int(otherY - fromY)));
             if (tempClosestDistance < closestDistance) {
                 closestDistance = tempClosestDistance;
@@ -110,4 +127,26 @@ Humanoid* Field::findNearby(Humanoid* from, const std::type_info& type) const {
 
 std::size_t Field::size() const {
     return gridSize;
+}
+
+void Field::addNewHumanoid(Humanoid* newHumanoid) {
+    humanoids.push_back(newHumanoid);
+}
+
+std::size_t Field::getNbEntity(const std::type_info& type) const {
+    std::size_t nb = 0;
+    for (Humanoid* h : humanoids)
+        if (typeid(*h) == type)
+            ++nb;
+
+    return nb;
+}
+
+Field::~Field() {
+    for (Humanoid* h : humanoids)
+        delete h;
+}
+
+std::size_t Field::getRandomPos() const {
+    return rand() % (size() - 2) + 1;
 }

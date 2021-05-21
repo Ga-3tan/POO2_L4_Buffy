@@ -5,15 +5,17 @@
 #ifndef POO2_L4_BUFFY_MOVE_H
 #define POO2_L4_BUFFY_MOVE_H
 
+class Move;
+
 #include "Action.h"
 
 class Move : public Action {
     std::size_t destX;
     std::size_t destY;
 public:
-    Move(Humanoid *actor, std::size_t destX, std::size_t destY);
-
-    void execute(Field &field) override;
+    Move(Humanoid* actor, std::size_t destX, std::size_t destY);
+    void execute(Field &field);
+    virtual ~Move() = default;
 };
 
 

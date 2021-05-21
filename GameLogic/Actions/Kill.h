@@ -8,9 +8,8 @@
 #include "Action.h"
 
 class Kill : public Action {
-private:
-    Humanoid* target;
 public:
+    Kill(Humanoid* actor);
     void execute(Field &field) override;
 };
 

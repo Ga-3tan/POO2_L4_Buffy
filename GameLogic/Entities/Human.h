@@ -19,9 +19,17 @@
 #include "Humanoid.h"
 
 class Human : public Humanoid {
+private:
+    static const char DISPLAY_CHAR;
+    static const std::size_t DISPLAY_COLOR;
+    static const std::size_t SPEED;
+
+    char getDisplayChar() const override;
+    std::size_t getDisplayColor() const override;
+    std::size_t getSpeed() const override;
 public:
-    Human();
     void setAction(const Field& f) override;
+
 };
 
 #endif //POO2_L4_BUFFY_HUMAN_H
