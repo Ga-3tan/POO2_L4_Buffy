@@ -18,17 +18,17 @@ class Humanoid {
     friend std::ostream& operator << (std::ostream& out, const Humanoid& o);
 protected:
     Coordinate position;
-    size_t speed;
     bool alive;
-    char displayChar;
-    unsigned int displayColor;
     std::shared_ptr<Action> action;
 
-    Humanoid(std::size_t speed, char displayChar, char displayColor);
+    Humanoid();
     std::shared_ptr<Action> moveRandomly(const Field& f);
     std::shared_ptr<Action> chaseHumanoid(const Field& f, const std::type_info& humanoidType);
     virtual std::shared_ptr<Action> attackHumanoid(Humanoid* victim);
 
+    virtual char getDisplayChar() const = 0;
+    virtual std::size_t getDisplayColor() const = 0;
+    virtual std::size_t getSpeed() const = 0;
 public:
     std::size_t x() const;
     std::size_t y() const;

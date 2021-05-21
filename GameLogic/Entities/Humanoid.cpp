@@ -9,19 +9,14 @@
 #include <cmath>
 
 std::ostream& operator << (std::ostream& out, const Humanoid& o) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), o.displayColor /* Char color */);
-    out << o.displayChar;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), o.getDisplayColor() /* Char color */);
+    out << o.getDisplayChar();
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 /* Default color */);
 
     return out;
 }
 
-Humanoid::Humanoid(std::size_t speed, char displayChar, char displayColor) :
-position(0, 0),
-alive(true), speed(speed),
-displayChar(displayChar),
-displayColor(displayColor),
-action(nullptr) {}
+Humanoid::Humanoid() : position(0, 0), alive(true), action(nullptr) {}
 
 std::size_t Humanoid::x() const {
     return position.getX();
@@ -74,6 +69,7 @@ std::shared_ptr<Action> Humanoid::chaseHumanoid(const Field& f, const std::type_
         return attackHumanoid(nearest);
     } else {
         // Moves toward the humanoid
+        std::size_t speed = getSpeed();
         std::size_t movX = distX == 0 ? 0 : distX > 0 ? speed : -speed;
         std::size_t movY = distY == 0 ? 0 : distY > 0 ? speed : -speed;
 

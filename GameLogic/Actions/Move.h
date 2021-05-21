@@ -14,8 +14,8 @@ class Move : public Action {
     std::size_t destY;
 public:
     Move(Humanoid* actor, std::size_t destX, std::size_t destY);
-
     void execute(Field &field);
+    virtual ~Move() = default;
 };
 
 

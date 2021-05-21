@@ -16,9 +16,24 @@
 #include "Human.h"
 #include <memory>
 
-Human::Human() : Humanoid(1, 'h', 13 /* PINK */) {}
+// Static initializations
+const char Human::DISPLAY_CHAR = 'h';
+const std::size_t Human::DISPLAY_COLOR = 13; // Pink
+const std::size_t Human::SPEED = 1;
 
 void Human::setAction(const Field &f) {
     // Moves randomly
     action = moveRandomly(f);
+}
+
+char Human::getDisplayChar() const {
+    return DISPLAY_CHAR;
+}
+
+std::size_t Human::getDisplayColor() const {
+    return DISPLAY_COLOR;
+}
+
+std::size_t Human::getSpeed() const {
+    return SPEED;
 }

@@ -7,11 +7,11 @@ int main(int argc, char** argv) {
 
     try {
         // Converts arguments
-        std::size_t gridSize   = atoi(argv[1]);
-        std::size_t nbHumans   = atoi(argv[1]);
-        std::size_t nbVampires = atoi(argv[1]);
+        std::size_t gridSize   = std::stoi(argv[1]);
+        std::size_t nbHumans   = std::stoi(argv[2]);
+        std::size_t nbVampires = std::stoi(argv[3]);
 
-        Game game(std::stoi(argv[1]), std::stoi(argv[2]), std::stoi(argv[3]));
+        Game game(gridSize, nbHumans, nbVampires);
         game.start();
     } catch (const std::invalid_argument& e) {
         throw std::invalid_argument("Arguments must be integer values");

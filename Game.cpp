@@ -26,29 +26,31 @@ void Game::start() const {
     std::size_t turn = 0;
     do {
         // Registers user input
+        ConsoleManager::setCursorPosition(0, field.size());
         std::cout << "[" << turn << "] q>uit s>tatistics n>ext: ";
         getline(std::cin, input, '\n');
         std::cin.clear();
 
         // Processes user input
         if (input == "n") {
+            // Plays next turn and displays the game grid
             turn = field.nextTurn();
+            std::cout << field;
+
+            // Checks if the game is over
             if (field.getNbEntity(typeid(Vampire)) == 0) {
                 // Displays ending message
+                ConsoleManager::setCursorPosition(0, field.size() + 1);
                 std::cout << "There are no more vampires, the game has ended !" << std::endl;
                 if (field.getNbEntity(typeid(Human)) != 0)
                     std::cout << "Buffy has won ! There are human survivors !" << std::endl;
-                break;
+                input = "q";
             }
         } else if (input == "s") {
             double result = calculateBuffySuccess();
             ConsoleManager::setCursorPosition(0, gridSize + 2);
             std::cout << "Percentage of Buffy wins : " << result << "%" << std::endl;
         }
-
-        // Displays the game
-        std::cout << field;
-        ConsoleManager::setCursorPosition(0, field.size());
 
     } while (input != "q");
 }

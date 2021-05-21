@@ -7,7 +7,10 @@
 #include "Human.h"
 #include "../Actions/Convert.h"
 
-Vampire::Vampire() : Humanoid(1, 'V', 9 /* BLUE */) {}
+// Static initializations
+const char Vampire::DISPLAY_CHAR = 'V';
+const std::size_t Vampire::DISPLAY_COLOR = 9; // Blue
+const std::size_t Vampire::SPEED = 1;
 
 void Vampire::setAction(const Field &f) {
     action = chaseHumanoid(f, typeid(Human));
@@ -16,4 +19,16 @@ void Vampire::setAction(const Field &f) {
 std::shared_ptr<Action> Vampire::attackHumanoid(Humanoid* victim) {
     // Converts an enemy instead of killing it
     return std::make_shared<Convert>(victim);
+}
+
+char Vampire::getDisplayChar() const {
+    return DISPLAY_CHAR;
+}
+
+std::size_t Vampire::getDisplayColor() const {
+    return DISPLAY_COLOR;
+}
+
+std::size_t Vampire::getSpeed() const {
+    return SPEED;
 }
