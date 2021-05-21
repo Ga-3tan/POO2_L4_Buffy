@@ -1,6 +1,8 @@
-//
-// Created by gaeta on 12.05.2021.
-//
+/**
+ * @file Move.cpp
+ * @authors Gaétan Zwick, Marco Maziero
+ * @date 21.05.2021
+ */
 
 #include "Move.h"
 
