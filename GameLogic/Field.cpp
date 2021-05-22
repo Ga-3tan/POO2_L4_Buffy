@@ -81,8 +81,8 @@ Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
     Buffy* b = new Buffy();
     b->setPosition(getRandomPos(), getRandomPos());
 
-    // Spawns on the field
-    addNewHumanoid(b);
+    // Puts buffy a the end of the list (to be always drawn at the top
+    humanoids.push_back(b);
 }
 
 int Field::nextTurn() {

@@ -51,15 +51,24 @@ std::shared_ptr<Action> Humanoid::chaseHumanoid(const Field& f, const std::type_
     } else {
         // Moves toward the humanoid
         std::size_t speed = getSpeed();
-        std::size_t movX = distX == 0 ? 0 : distX > 0 ? speed : -speed;
-        std::size_t movY = distY == 0 ? 0 : distY > 0 ? speed : -speed;
+        std::size_t xDest = x();
+        std::size_t yDest = y();
+
+        // Calculates each move
+        for (std::size_t i = 0; i < speed; ++i) {
+            distX = nearest->x() - xDest;
+            distY = nearest->y() - yDest;
+
+            xDest += distX == 0 ? 0 : distX > 0 ? 1 : -1;
+            yDest += distY == 0 ? 0 : distY > 0 ? 1 : -1;
+        }
 
         // Out of bounds verification
-        if (x() + movX <= 0 || x() + movX >= f.size() - 2 ||
-            y() + movY <= 0 || y() + movY >= f.size() - 2)
+        if (xDest <= 0 || xDest >= f.size() - 2 ||
+            yDest <= 0 || yDest >= f.size() - 2)
             return nullptr;
 
-        return std::make_shared<Move>(this, x() + movX, y() + movY);
+        return std::make_shared<Move>(this, xDest, yDest);
     }
 }
 

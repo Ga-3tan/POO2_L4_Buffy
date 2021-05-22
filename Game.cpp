@@ -71,16 +71,6 @@ void Game::start() const {
             // Plays next turn and displays the game grid
             turn = field.nextTurn();
             std::cout << field;
-
-            // Checks if the game is over
-            if (field.getNbEntity(typeid(Vampire)) == 0) {
-                // Displays ending message
-                ConsoleManager::setCursorPosition(0, field.size() + 1);
-                std::cout << "There are no more vampires, the game has ended !" << std::endl;
-                if (field.getNbEntity(typeid(Human)) != 0)
-                    std::cout << "Buffy has won ! There are human survivors !" << std::endl;
-                input = "q";
-            }
         } else if (input == "s") {
             double result = calculateBuffySuccess();
             ConsoleManager::setCursorPosition(0, gridSize + 2);
@@ -88,4 +78,14 @@ void Game::start() const {
         }
 
     } while (input != "q");
+
+    // Checks if the game is over
+    if (field.getNbEntity(typeid(Vampire)) == 0) {
+        // Displays ending message
+        ConsoleManager::setCursorPosition(0, field.size() + 1);
+        std::cout << "Buffy killed all the vampires !" << std::endl;
+        if (field.getNbEntity(typeid(Human)) != 0)
+            std::cout << "Buffy has won ! There are human survivors !" << std::endl;
+        input = "q";
+    }
 }
