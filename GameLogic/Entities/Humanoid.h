@@ -34,8 +34,8 @@ class Humanoid {
      */
     friend std::ostream& operator << (std::ostream& out, const Humanoid& h);
 protected:
-    Coordinate position;
     bool alive;
+    Coordinate position;
     std::shared_ptr<Action> action;
 
     /**

@@ -14,7 +14,7 @@
 #include <cmath>
 
 // Static initializations
-const std::size_t Game::NB_SIMULATIONS = 100000;
+const std::size_t Game::NB_SIMULATIONS = 10000;
 
 double Game::calculateBuffySuccess() const {
     double nbBuffyWins = 0;
@@ -46,7 +46,7 @@ double Game::calculateBuffySuccess() const {
 }
 
 Game::Game(std::size_t gridSize, std::size_t nbHumans, std::size_t nbVampires)
-: gridSize(gridSize), nbHumans(nbHumans), nbVampires(nbVampires) {
+: gridSize(gridSize + 2), nbHumans(nbHumans), nbVampires(nbVampires) {
     // Sets the seed for the randomizer
     srand (time(NULL));
 }
@@ -67,14 +67,14 @@ void Game::start() const {
         std::cin.clear();
 
         // Processes user input
-        if (input == "n") {
+        if (input == "n" || input.empty()) {
             // Plays next turn and displays the game grid
             turn = field.nextTurn();
             std::cout << field;
         } else if (input == "s") {
             double result = calculateBuffySuccess();
-            ConsoleManager::setCursorPosition(0, gridSize + 2);
-            std::cout << "Percentage of Buffy wins : " << result << "%" << std::endl;
+            ConsoleManager::setCursorPosition(0, field.size() + 2);
+            std::cout << "Percentage of Buffy wins : " << result << "%";
         }
 
     } while (input != "q");

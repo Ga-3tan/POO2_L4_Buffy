@@ -18,7 +18,7 @@ std::ostream& operator << (std::ostream& out, const Humanoid& h) {
     return out;
 }
 
-Humanoid::Humanoid() : position(0, 0), alive(true), action(nullptr) {}
+Humanoid::Humanoid() : alive(true), position(0, 0), action(nullptr) {}
 
 std::shared_ptr<Action> Humanoid::moveRandomly(const Field& f) {
     // Checks borders and moves
