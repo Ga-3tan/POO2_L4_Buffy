@@ -45,12 +45,14 @@ std::ostream& operator << (std::ostream& os, Field& field) {
     }
 
     // Displays all humanoids
-    for (Humanoid* h : field.humanoids) {
-        ConsoleManager::setCursorPosition(h->x(), h->y());
-        os << *h;
+    for (std::list<Humanoid*>::reverse_iterator it = field.humanoids.rbegin();
+    it != field.humanoids.rend();
+    ++it) {
+        ConsoleManager::setCursorPosition((*it)->x(), (*it)->y());
+        os << **it;
 
         // Adds the position to the display coords
-        field.oldDisplayCoords.emplace_back(h->x(), h->y());
+        field.oldDisplayCoords.emplace_back((*it)->x(), (*it)->y());
     }
 
     return os;
@@ -59,7 +61,6 @@ std::ostream& operator << (std::ostream& os, Field& field) {
 std::size_t Field::getRandomPos() const {
     return rand() % (size() - 2) + 1;
 }
-
 
 Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
 : gridSize(size), turn(0) {
@@ -81,8 +82,8 @@ Field::Field(std::size_t size, std::size_t nbHumans, std::size_t nbVampires)
     Buffy* b = new Buffy();
     b->setPosition(getRandomPos(), getRandomPos());
 
-    // Puts buffy a the end of the list (to be always drawn at the top
-    humanoids.push_back(b);
+    // Puts buffy a the beginning of the list (to be always drawn at the top)
+    humanoids.push_front(b);
 }
 
 int Field::nextTurn() {
@@ -110,7 +111,7 @@ int Field::nextTurn() {
 }
 
 void Field::addNewHumanoid(Humanoid* newHumanoid) {
-    humanoids.push_front(newHumanoid);
+    humanoids.push_back(newHumanoid);
 }
 
 Humanoid* Field::findNearby(const Humanoid* from, const std::type_info& type) const {
@@ -125,7 +126,8 @@ Humanoid* Field::findNearby(const Humanoid* from, const std::type_info& type) co
             std::size_t otherY = h->y();
 
             // Distance between two coordinates
-            double tempClosestDistance = hypot(abs(int(otherX - fromX)), abs(int(otherY - fromY)));
+            double tempClosestDistance = hypot(abs(int(otherX - fromX)),
+                                               abs(int(otherY - fromY)));
             if (tempClosestDistance < closestDistance) {
                 closestDistance = tempClosestDistance;
                 nearest = h;

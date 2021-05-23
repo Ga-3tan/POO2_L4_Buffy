@@ -83,7 +83,8 @@ void Game::start() const {
     if (field.getNbEntity(typeid(Vampire)) == 0) {
         // Displays ending message
         ConsoleManager::setCursorPosition(0, field.size() + 1);
-        std::cout << "The game is over, Buffy successfully killed all the vampires !" << std::endl;
+        std::cout << "The game is over, Buffy successfully"
+                     "killed all the vampires !" << std::endl;
         if (field.getNbEntity(typeid(Human)) != 0)
             std::cout << "Buffy has won ! There are human survivors !" << std::endl;
         input = "q";

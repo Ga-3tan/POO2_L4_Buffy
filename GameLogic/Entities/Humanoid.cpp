@@ -11,9 +11,11 @@
 #include <cmath>
 
 std::ostream& operator << (std::ostream& out, const Humanoid& h) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), h.getDisplayColor() /* Char color */);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                            h.getDisplayColor() /* Char color */);
     out << h.getDisplayChar();
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15 /* Default color */);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                            15 /* Default color */);
 
     return out;
 }

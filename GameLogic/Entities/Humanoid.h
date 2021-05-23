@@ -56,7 +56,8 @@ protected:
      * @param humanoidType The type of humanoid to chase
      * @return The created action (move, kill, ...)
      */
-    std::shared_ptr<Action> chaseHumanoid(const Field& f, const std::type_info& humanoidType);
+    std::shared_ptr<Action> chaseHumanoid(const Field& f,
+                                          const std::type_info& humanoidType);
 
     /**
      * Creates an action for attacking a humanoid
