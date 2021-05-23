@@ -99,6 +99,6 @@ void Humanoid::die() {
 }
 
 void Humanoid::executeAction(Field &f) {
-    if (action)
+    if (action && isAlive())
         action->execute(f);
 }
