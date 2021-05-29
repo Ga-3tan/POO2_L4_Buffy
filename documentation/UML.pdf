@@ -1,0 +1,838 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [-3 -3 4740 2685]
+/Contents 4 0 R
+/Resources 6 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5 0 R
+>>
+stream
+q
+2.8346457 0 0 -2.8346457 0 2685 cm
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+1450 420 m 1340 420 l S
+1430 428 m 1450 420 l 1430 412 l S
+810 200 m 930 200 l S
+910 208 m 930 200 l 910 192 l S
+880 420 m 650 420 l S
+670 412 m 650 420 l 670 428 l S
+1120 370 m 1120 320 l S
+1112 350 m 1120 370 l 1128 350 l S
+740 570 m 740 540 l S
+740 540 m 530 540 l S
+530 540 m 530 485 l S
+1 1 1 rg 1 1 1 RG
+530 485 m 538 505 l 522 505 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+530 485 m 538 505 l 522 505 l h S
+530 570 m 530 485 l S
+1 1 1 rg 1 1 1 RG
+530 485 m 538 505 l 522 505 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+530 485 m 538 505 l 522 505 l h S
+250 570 m 250 540 l S
+250 540 m 530 540 l S
+530 540 m 530 485 l S
+1 1 1 rg 1 1 1 RG
+530 485 m 538 505 l 522 505 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+530 485 m 538 505 l 522 505 l h S
+1400 750 m 1400 730 l S
+1400 730 m 1110 730 l S
+1110 730 m 1110 680 l S
+1 1 1 rg 1 1 1 RG
+1110 680 m 1118 700 l 1102 700 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+1110 680 m 1118 700 l 1102 700 l h S
+1110 750 m 1110 680 l S
+1 1 1 rg 1 1 1 RG
+1110 680 m 1118 700 l 1102 700 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+1110 680 m 1118 700 l 1102 700 l h S
+820 750 m 820 730 l S
+820 730 m 1110 730 l S
+1110 730 m 1110 680 l S
+1 1 1 rg 1 1 1 RG
+1110 680 m 1118 700 l 1102 700 l h f
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+1110 680 m 1118 700 l 1102 700 l h S
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+430 570 m 620 570 l 620 654 l 430 654 l 430 570 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+430 570 m 620 570 l 620 654 l 430 654 l 430 570 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 503 592 cm
+(Convert) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+430 605 m 620 605 l S
+430 615 m 620 615 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 438 630 cm
+(+ Convert \(actor : Humanoid*\)) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 438 644 cm
+(+ execute \(field : Field&\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+440 90 m 810 90 l 810 257 l 440 257 l 440 90 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+440 90 m 810 90 l 810 257 l 440 257 l 440 90 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 609 112 cm
+(Game) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+440 125 m 810 125 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 448 140 cm
+(- NB_SIMULATIONS : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 154 cm
+(- gridSize : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 168 cm
+(- nbHumans : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 182 cm
+(- nbVampires : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 196 cm
+(- attribute : void) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+440 205 m 810 205 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 448 220 cm
+(+ Game \(gridSize : size_t, nbHumans : size_t, nbVampires : siz...) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 234 cm
+(+ start \(\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 448 248 cm
+(- calculateBuffySuccess \(\) : double) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+650 570 m 830 570 l 830 653 l 650 653 l 650 570 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+650 570 m 830 570 l 830 653 l 650 653 l 650 570 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 731 592 cm
+(Kill) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+650 605 m 830 605 l S
+650 615 m 830 615 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 658 630 cm
+(+ Kill \(actor : Humanoid*\)) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 658 644 cm
+(+ execute \(f : Field&\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+80 570 m 410 570 l 410 681 l 80 681 l 80 570 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+80 570 m 410 570 l 410 681 l 80 681 l 80 570 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 230 592 cm
+(Move) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+80 605 m 410 605 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 88 620 cm
+(- destX : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 88 634 cm
+(- destY : size_t) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+80 643 m 410 643 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 88 658 cm
+(+ Move \(actor : Humanoid*, destX : size_t, destY : size...) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 88 672 cm
+(+ execute \(f : Field&\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+420 370 m 650 370 l 650 481 l 420 481 l 420 370 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+420 370 m 650 370 l 650 481 l 420 481 l 420 370 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F3 12 Tf
+1 0 0 -1 517 392 cm
+(Action) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+420 405 m 650 405 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 428 420 cm
+(# actionReciever : Humanoid*) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+420 429 m 650 429 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 428 444 cm
+(+ Action \(actionReciever : Humanoid*\)) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 428 458 cm
+(+ execute \(f : Field&\) : void) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 428 472 cm
+(+ ~Action \(\) : none) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+930 70 m 1310 70 l 1310 307 l 930 307 l 930 70 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+930 70 m 1310 70 l 1310 307 l 930 307 l 930 70 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 1106 92 cm
+(Field) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+930 105 m 1310 105 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 938 120 cm
+(- humanoids : list<Humanoid*>) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 134 cm
+(- oldDisplayCoords : list<Coordinate>) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 148 cm
+(- gridSize : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 162 cm
+(- turn : int) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+930 171 m 1310 171 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 938 186 cm
+(+ Field \(size : size_t, nbHumans : size_t, nbVampires : size_t\)) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 200 cm
+(+ ~Field \(\)) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 214 cm
+(+ findNearby \(from : Humanoide*, type : type_info&\) : Humanoid...) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 228 cm
+(+ nextTurn \(\) : int) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 242 cm
+(+ operator<< \(os : ostream&, field : Field&\) : ostream&) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 256 cm
+(+ getRandomPos \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 270 cm
+(+ addNewHumanoid \(newHumanoid : Humanoid*\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 284 cm
+(+ size \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 938 298 cm
+(+ getNbEntity \(type : type_info&\) : size_t) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+1300 750 m 1500 750 l 1500 903 l 1300 903 l 1300 750 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1300 750 m 1500 750 l 1500 903 l 1300 903 l 1300 750 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 1380 772 cm
+(Human) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1300 785 m 1500 785 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 800 cm
+(- DISPLAY_CHAR : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 814 cm
+(- DISPLAY_COLOR : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 828 cm
+(- SPEED : size_t) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1300 837 m 1500 837 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 852 cm
+(- getDisplayChar \(\) : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 866 cm
+(- getDisplayColor \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 880 cm
+(- getSpeed \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1308 894 cm
+(+ setAction \(f : Field&\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+940 750 m 1290 750 l 1290 917 l 940 917 l 940 750 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+940 750 m 1290 750 l 1290 917 l 940 917 l 940 750 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 1092 772 cm
+(Vampire) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+940 785 m 1290 785 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 948 800 cm
+(- DISPLAY_CHAR : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 814 cm
+(- DISPLAY_COLOR : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 828 cm
+(- SPEED : size_t) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+940 837 m 1290 837 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 948 852 cm
+(- getDisplayChar \(\) : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 866 cm
+(- getDisplayColor \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 880 cm
+(- getSpeed \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 894 cm
+(+ setAction \(f : Field&\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 948 908 cm
+(+ attackHumanoid \(victim : Humanoid*\) : shared_ptr<Acti...) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+720 750 m 920 750 l 920 903 l 720 903 l 720 750 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+720 750 m 920 750 l 920 903 l 720 903 l 720 750 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 805 772 cm
+(Buffy) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+720 785 m 920 785 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 728 800 cm
+(- DISPLAY_CHAR : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 728 814 cm
+(- DISPLAY_COLOR : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 728 828 cm
+(- SPEED : size_t) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+720 837 m 920 837 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 728 852 cm
+(- getDisplayChar \(\) : char) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 728 866 cm
+(- getDisplayColor \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 728 880 cm
+(- getSpeed \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 728 894 cm
+(+ setAction \(f : Field&\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+1450 370 m 1650 370 l 1650 523 l 1450 523 l 1450 370 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1450 370 m 1650 370 l 1650 523 l 1450 523 l 1450 370 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 1517 392 cm
+(Coordinates) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1450 405 m 1650 405 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 420 cm
+(- x : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 434 cm
+(- y : size_t) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+1450 443 m 1650 443 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 458 cm
+(+ Coordinates \(x : size_t, y : siz...) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 472 cm
+(+ getX \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 486 cm
+(+ getY \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 500 cm
+(+ setX \(x : size_t\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 1458 514 cm
+(+ setY \(y : size_t\) : void) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+880 370 m 1340 370 l 1340 663 l 880 663 l 880 370 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+880 370 m 1340 370 l 1340 663 l 880 663 l 880 370 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F3 12 Tf
+1 0 0 -1 1082 392 cm
+(Humanoid) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+880 405 m 1340 405 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 888 420 cm
+(# alive : bool) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+880 429 m 1340 429 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 888 444 cm
+(# Humanoide \(\)) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 458 cm
+(# moveRandomly \(f : Field&\) : shared_ptr<Action>) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 472 cm
+(# chaseHumanoid \(f : Field&, humanoidType : type_info&\) : shared_ptr<Action>) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 888 486 cm
+(# attackHumanoid \(victim : Humanoid*\) : shared_ptr<Action>) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 888 500 cm
+(# getDisplayChar \(\) : char) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 888 514 cm
+(# getDisplayColor \(\) : size_t) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 888 528 cm
+(# getSpeed \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 542 cm
+(+ x \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 556 cm
+(+ y \(\) : size_t) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 570 cm
+(+ setPosition \(x : size_t, y : size_t\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 584 cm
+(+ isAlive \(\) : bool) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 598 cm
+(+ die \(\) : void) Tj
+ET Q
+q BT
+/F4 12 Tf
+1 0 0 -1 888 612 cm
+(+ setAction \(f : Field&\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 626 cm
+(+ executeAction \(f : Field&\) : void) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 640 cm
+(+ operator<< \(os : ostream&, h : Humanoid&\) : ostream&) Tj
+ET Q
+q BT
+/F2 12 Tf
+1 0 0 -1 888 654 cm
+(+ ~Humanoide \(\)) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+140 90 m 410 90 l 410 159 l 140 159 l 140 90 l h f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+140 90 m 410 90 l 410 159 l 140 159 l 140 90 l h S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F1 12 Tf
+1 0 0 -1 229 112 cm
+(ConsoleManager) Tj
+ET Q
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+140 125 m 410 125 l S
+140 135 m 410 135 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F2 12 Tf
+1 0 0 -1 148 150 cm
+(+ setCursorPosition \(x : size_t, y : size_t\) : v...) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1351 440 cm
+(se trouve à >) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1436 409 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1343 409 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 832 213 cm
+(contient >) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 813 187 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 914 187 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 731 409 cm
+(< prépare) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 869 408 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 653 405 cm
+(1) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1123 343 cm
+(contient v) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1100 366 cm
+(*) Tj
+ET Q
+q BT
+/F5 14 Tf
+1 0 0 -1 1102 333 cm
+(1) Tj
+ET Q
+1 0.9686275 0.8823529 rg 1 0.9686275 0.8823529 RG
+0 0 m 0 30 l 35 30 l 55 30 65 20 65 0 c 0 0 l f
+1.2 w
+0.254902 0.254902 0.254902 rg 0.254902 0.254902 0.254902 RG
+0 0 m 0 30 l 35 30 l 55 30 65 20 65 0 c 0 0 l S
+1 w
+0.2509804 0.2509804 0.2509804 rg 0.2509804 0.2509804 0.2509804 RG
+q BT
+/F6 16 Tf
+1 0 0 -1 5 22 cm
+(Buffy) Tj
+ET Q
+0 0 m 1669 0 l 1669 944 l 0 944 l 0 0 l h S
+Q
+endstream
+endobj
+5 0 obj
+16237
+endobj
+6 0 obj
+<<
+ /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+ /Font <<
+  /F1 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+  /F2 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+  /F3 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+  /F4 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+  /F5 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+  /F6 << /Type /Font /Subtype /TrueType /BaseFont /Ubuntu >>
+ >>
+>>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000223 00000 n 
+0000016513 00000 n 
+0000016534 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+16982
+%%EOF
